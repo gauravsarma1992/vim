@@ -18,6 +18,8 @@ Plugin 'joonty/vim-taggatron'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/fzf'
+Plugin 'fatih/vim-go'
+Plugin 'vim-syntastic/syntastic.git'
 
 
 call vundle#end()            " required
@@ -40,7 +42,7 @@ set wildmenu
 set shiftwidth=4
 set softtabstop=4
 set list
-set listchars=tab:->
+set listchars=tab:--
 set backspace=indent,eol,start
 
 filetype on
@@ -56,6 +58,7 @@ autocmd FileType css set tabstop=2|set softtabstop=2|set shiftwidth=2|set expand
 autocmd FileType scss set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType html set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType erb set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
+autocmd BufWritePost *.py call Flake8()
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap ch :%s/\<<C-r><C-w>\>/
@@ -78,6 +81,14 @@ nnoremap <leader>t :CtrlPTag<return>
 nnoremap <leader>h :noh<return><esc>
 noremap <leader>a ggVG
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP .'
 "let g:ctrlp_working_path_mode = 'ra'
