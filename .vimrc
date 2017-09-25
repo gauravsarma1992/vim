@@ -58,7 +58,6 @@ autocmd FileType css set tabstop=2|set softtabstop=2|set shiftwidth=2|set expand
 autocmd FileType scss set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType html set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType erb set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
-autocmd BufWritePost *.py call Flake8()
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap ch :%s/\<<C-r><C-w>\>/
