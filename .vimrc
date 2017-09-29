@@ -29,6 +29,8 @@ call vundle#end()            " required
 "
 
 source ~/.vim/ftplugin/cscope_maps.vim
+set tags=./tags
+
 syntax on
 
 set autoindent
@@ -44,6 +46,7 @@ set softtabstop=4
 set list
 set listchars=tab:--
 set backspace=indent,eol,start
+set mouse=a
 
 filetype on
 filetype plugin on
@@ -59,12 +62,30 @@ autocmd FileType scss set tabstop=2|set softtabstop=2|set shiftwidth=2|set expan
 autocmd FileType html set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType erb set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap ch :%s/\<<C-r><C-w>\>/
 nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 nmap <leader>sn :set number<CR>
 nmap <leader>snn :set nonumber<CR>
+
+" Toggle NERDTree
+nmap <leader>n :NERDTreeToggle<CR>
+
+" Mouse strategy
+nmap <leader>mc :set mouse=c<CR>
+nmap <leader>ma :set mouse=a<CR>
+
+" Fold strategy
+nmap <leader>fi :set foldenable foldmethod=indent<CR>
+nmap <leader>fn :set nofoldenable<CR>
+
+" CTags bindings
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Save keybindings
 nmap <leader>s :w<CR>
