@@ -34,9 +34,11 @@ set tags=./tags
 syntax on
 
 set autoindent
+set expandtab ts=4 sw=4 ai
 "set cursorline
 "set cursorcolumn
 set showcmd
+set background=dark
 set hlsearch
 set incsearch
 set expandtab
@@ -54,6 +56,8 @@ filetype indent on
 
 
 autocmd FileType * set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
+autocmd BufNewFile,BufRead *.go setlocal ts=4 sw=4 sts=4
+autocmd FileType go setlocal ts=4 sw=4 sts=4
 autocmd FileType python set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab|set autoindent
 autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType javascript set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
@@ -74,6 +78,9 @@ nmap <leader>snn :set nonumber<CR>
 
 " Toggle NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
+
+" Remove trailing whitespaces
+nmap <leader>pw :%s/\s\+$//e<CR>
 
 " Mouse strategy
 nmap <leader>mc :set mouse=c<CR>
@@ -104,6 +111,8 @@ noremap <leader>a ggVG
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"let g:go_fmt_autosave = 0
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
