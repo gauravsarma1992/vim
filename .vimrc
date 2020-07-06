@@ -28,7 +28,6 @@ call vundle#end()            " required
 " "filetype plugin on
 "
 
-source ~/.vim/ftplugin/cscope_maps.vim
 set tags=./tags
 
 syntax on
@@ -53,7 +52,6 @@ set mouse=a
 filetype on
 filetype plugin on
 filetype indent on
-
 
 autocmd FileType * set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd BufNewFile,BufRead *.go setlocal ts=4 sw=4 sts=4
