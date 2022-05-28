@@ -3,6 +3,7 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/opt/homebrew/opt/fz
 call vundle#begin()
 " " alternatively, pass a path where Vundle should install plugins
 " "call vundle#begin('~/some/path/here')
@@ -20,7 +21,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/fzf'
 Plugin 'fatih/vim-go'
 Plugin 'vim-syntastic/syntastic.git'
-
+Plugin 'jremmen/vim-ripgrep'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()            " required
 " filetype plugin indent on    " required
@@ -44,10 +46,9 @@ set expandtab
 set wildmenu
 set shiftwidth=4
 set softtabstop=4
-set list
-set listchars=tab:--
 set backspace=indent,eol,start
 set mouse=a
+set clipboard=unnamed
 
 filetype on
 filetype plugin on
@@ -73,6 +74,8 @@ nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 nmap <leader>sn :set number<CR>
 nmap <leader>snn :set nonumber<CR>
+nmap <leader>pst :set paste<CR>
+nmap <leader>npst :set nopaste<CR>
 
 " Toggle NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
@@ -102,6 +105,9 @@ imap <leader>ss <Esc>:wq<CR>
 nmap <C-p> :FZF<CR>
 imap <C-p> :FZF<CR>
 
+nnoremap <Leader>f :Ack! <cword><CR><Space>
+nnoremap <Leader>f :Ack! <cword><CR><Space>
+
 nnoremap <leader>t :CtrlPTag<return>
 nnoremap <leader>h :noh<return><esc>
 noremap <leader>a ggVG
@@ -109,6 +115,8 @@ noremap <leader>a ggVG
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+set noswapfile
 
 "let g:go_fmt_autosave = 0
 
