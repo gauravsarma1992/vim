@@ -23,6 +23,7 @@ Plugin 'fatih/vim-go'
 Plugin 'vim-syntastic/syntastic.git'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'mileszs/ack.vim'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()            " required
 " filetype plugin indent on    " required
