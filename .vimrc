@@ -20,10 +20,12 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/fzf'
 Plugin 'fatih/vim-go'
-Plugin 'vim-syntastic/syntastic.git'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'mileszs/ack.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'hashivim/vim-terraform'
+
 
 call vundle#end()            " required
 " filetype plugin indent on    " required
@@ -58,6 +60,7 @@ filetype indent on
 autocmd FileType * set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd BufNewFile,BufRead *.go setlocal ts=4 sw=4 sts=4
 autocmd FileType go setlocal ts=4 sw=4 sts=4
+autocmd FileType rs setlocal ts=4 sw=4 sts=4
 autocmd FileType python set tabstop=4|set softtabstop=4|set shiftwidth=4|set expandtab|set autoindent
 autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
 autocmd FileType javascript set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab|set autoindent
@@ -114,17 +117,12 @@ nnoremap <leader>h :noh<return><esc>
 noremap <leader>a ggVG
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 set noswapfile
 
 "let g:go_fmt_autosave = 0
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP .'
 "let g:ctrlp_working_path_mode = 'ra'
