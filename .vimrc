@@ -82,7 +82,11 @@ nmap <leader>pst :set paste<CR>
 nmap <leader>npst :set nopaste<CR>
 
 " Toggle NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>nn :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+"autocmd VimEnter * NERDTree | wincmd p
 
 " Remove trailing whitespaces
 nmap <leader>pw :%s/\s\+$//e<CR>
