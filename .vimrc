@@ -52,6 +52,7 @@ set softtabstop=4
 set backspace=indent,eol,start
 set mouse=a
 set clipboard=unnamed
+set number
 
 filetype on
 filetype plugin on
