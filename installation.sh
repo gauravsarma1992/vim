@@ -1,7 +1,8 @@
 #!/bin/bash
-cp .vimrc ~/.vimrc
-cp .git-completion.sh ~/
-cp .git-aliases.sh ~/
+cp vimrc ~/.vimrc
+cp git-completion.sh ~/.git-completion.sh
+cp git-aliases.sh ~/.git-aliases.sh
+cp bash-aliases.sh ~/.bash-aliases.sh
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c 'PluginInstall' -c 'qa!'
